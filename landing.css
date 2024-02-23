@@ -8,7 +8,7 @@
 
 body {
   height: 100%;
-  background-color: #000000;
+  background-color: #000020;
 }
 
 *{
@@ -18,7 +18,7 @@ body {
 
 .header { 
   display: flex;
-  background: #000000; 
+  background: #000020; 
   height: 75px;
   align-items: center;
   justify-content: space-between;
@@ -69,36 +69,54 @@ body {
   justify-content: end;
 }
 
-.login{
-  display: inline-block;
-  position: relative ;
-  text-align: center;
-  line-height: 50px;
-  text-decoration: none;
-  background: linear-gradient(to right, #ffbd23, #fd7201);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  z-index: 9;
+.login {
+  font-size: 20px;
+  margin-right: 10px;
   height: 50px;
   width: 100px;
-  border-radius: 10px;
-  font-size: 20px;
-  margin-right: 25px;
+  display: block;
+  line-height: 50px;
+  background: linear-gradient(90deg,#ffbd23 3%, #fd7201 53%,#ffbd23 97%);
+  text-align: center;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255,255,255,0.001);
+  transition: 0.5s all;
+  position: relative;
+  cursor: pointer;
+  background-size: 200% 100%;
+  background-position: left center;
 }
 
-.login-helper{
-  position: absolute;
-  height: 50px;
-  width: 100px;
-  margin-left: -12px;
-  z-index: -1;
-  border-radius: 10px;
-  opacity: 0;
-  transition: opacity 0.5s linear;
-  background: linear-gradient(to right, #fd7201,#ffbd23);
+.login:before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    background: linear-gradient(90deg, #ffbd23 3%, #fd7201 47%,#ffbd23 97%);
+    transition: 0.5 all;
+    z-index: -1;
+    background-size: 200% 100%;
+    background-position: left center;
 }
-.login:hover .login-helper{
-  opacity: 1;
+
+.login:after {
+    background: rgb(24,24,24);
+    content: '';
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
+}
+
+.login:hover,
+.login:hover:before {
+  background-position: right center;
 }
 
   .signup{
@@ -115,13 +133,13 @@ body {
     font-size: 20px;
     margin-right: 50px;
     background: linear-gradient(to right, #ffbd23, #fd7201);
-  }
-
+  } 
+  
   .signup-helper{
     position: absolute;
     height: 50px;
     width: 100px;
-    margin-left: -12px;
+    margin-left: -15px;
     z-index: -1;
     border-radius: 10px;
     opacity: 0;
@@ -135,19 +153,18 @@ body {
 }
 
 .poster {
-  background-color: #000000;
+  background-color: #000020;
   background-image: url("/images/landingpagepic2.jpg");
   background-size: cover;
   background-position: center;
-  height: 55vh;
-  background-color: #000000; 
+  height: 55vh; 
 }
 
 .content{
   width: 100%;
   height: 100%;
   color: white;
-  background-color: #000000;
+  background-color: #000020;
   position: relative;
 }
 .content .par{
@@ -212,9 +229,3 @@ body {
   color: orange;
   font-size: 60px;
 }
-
-
-
-
-
-
