@@ -154,24 +154,39 @@ body {
 
 .poster {
   background-color: #000020;
-  background-image: url("/images/landingpagepic2.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 55vh; 
+  display: flex;
+}
+
+#votepost{
+  height: 15%;
+  width: 350px;
+  position: relative;
+  float: right;
+  margin-top: -345px;
+  margin-right: 350px;
+  filter: brightness(0.9);
+}
+
+.content h3{
+  position: absolute;
+  left: 73%;
+  top: 15%;
+  font-size: 26px;
+  text-align: center;
 }
 
 .votebtn{
   display: inline-block;
   position: absolute;
-  top: 50%;
-  left: 74%;
+  top: 84%;
+  left: 82%;
   text-align: center;
   justify-content: center;
   line-height: 70px;
   color: black;
   text-decoration: none;
   z-index: 9;
-  height: 70px;
+  height: 65px;
   width: 150px;
   border-radius: 10px;
   font-size: 24px;
@@ -181,7 +196,7 @@ body {
 
 .votebtn-helper{
   position: absolute;
-  height: 70px;
+  height: 65px;
   width: 150px;
   margin-left: -13px;
   z-index: -1;
@@ -200,6 +215,7 @@ body {
   color: white;
   background-color: #000020;
   position: relative;
+  top: 440px;
 }
 .content .par{
   margin-top: 10px;
