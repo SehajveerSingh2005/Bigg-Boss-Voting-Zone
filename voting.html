@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIGG BOSS</title>
+    <link rel="stylesheet" href="voting.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <img id="logo" src="/images/logo.png">
+        <ul id="navlist">
+          <li id="active"><a href="#" id="current">Home</a></li>
+          <li><a href="#">Watch Now</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Result</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <a href='#' class="signout">
+            <span class="signout-helper"></span>
+        Signout</a>
+    </div>
+    <div class="title">Vote For Your <span> Favourite </span> Contestant Now!</div>
+    <div class="card-container">
+        <div class="card Aishwarya" id="Aishwarya" onclick="selected(this)"><div class="name">Aishwarya Sharma</div></div>
+        <div class="card Ankita" id="Ankita" onclick="selected(this)"><div class="name">Ankita Lokhande</div></div>
+        <div class="card Anurag" id="Anurag" onclick="selected(this)"><div class="name">Anurag Dobhal</div></div>
+        <div class="card Firoza" id="Firoza" onclick="selected(this)"><div class="name">Firoza Khan</div></div>
+        <div class="card Isha" id="Isha" onclick="selected(this)"><div class="name">Isha Malviya</div></div>
+        <div class="card Mannara" id="Mannara" onclick="selected(this)"><div class="name">Mannara Chopra</div></div>
+        <div class="card Munawar" id="Munawar" onclick="selected(this)"><div class="name">Munawar Faruqui</div></div>
+        <div class="card Neil" id="Neil" onclick="selected(this)"><div class="name">Neil Bhatt</div></div>
+        <div class="card Samarth" id="Samarth" onclick="selected(this)"><div class="name">Samarth Jurel</div></div>
+        <div class="card Vicky" id="Vicky" onclick="selected(this)"><div class="name">Vicky Jain</div></div>
+    </div>
+    <a href="#" id="voteButton" class="votebtn"><span class="votebtn-helper"></span>Vote</a>
+</body>
+<script src="voting.js"></script>
+</html>
