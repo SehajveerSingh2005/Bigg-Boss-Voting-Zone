@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js"></script> -->
+    <script src="voting.js" type="module"></script>
 </head>
 <body>
     <div class="header">
@@ -25,18 +28,18 @@
     </div>
     <div class="title">Vote For Your <span> Favourite </span> Contestant Now!</div>
     <div class="card-container">
-        <div class="card Aishwarya" id="Aishwarya" onclick="selected(this)"><div class="name">Aishwarya Sharma</div></div>
-        <div class="card Ankita" id="Ankita" onclick="selected(this)"><div class="name">Ankita Lokhande</div></div>
-        <div class="card Anurag" id="Anurag" onclick="selected(this)"><div class="name">Anurag Dobhal</div></div>
-        <div class="card Firoza" id="Firoza" onclick="selected(this)"><div class="name">Firoza Khan</div></div>
-        <div class="card Isha" id="Isha" onclick="selected(this)"><div class="name">Isha Malviya</div></div>
-        <div class="card Mannara" id="Mannara" onclick="selected(this)"><div class="name">Mannara Chopra</div></div>
-        <div class="card Munawar" id="Munawar" onclick="selected(this)"><div class="name">Munawar Faruqui</div></div>
-        <div class="card Neil" id="Neil" onclick="selected(this)"><div class="name">Neil Bhatt</div></div>
-        <div class="card Samarth" id="Samarth" onclick="selected(this)"><div class="name">Samarth Jurel</div></div>
-        <div class="card Vicky" id="Vicky" onclick="selected(this)"><div class="name">Vicky Jain</div></div>
+        <div class="card Aishwarya" id="Aishwarya"><div class="name">Aishwarya Sharma</div></div>
+        <div class="card Ankita" id="Ankita"><div class="name">Ankita Lokhande</div></div>
+        <div class="card Anurag" id="Anurag"><div class="name">Anurag Dobhal</div></div>
+        <div class="card Firoza" id="Firoza"><div class="name">Firoza Khan</div></div>
+        <div class="card Isha" id="Isha"><div class="name">Isha Malviya</div></div>
+        <div class="card Mannara" id="Mannara"><div class="name">Mannara Chopra</div></div>
+        <div class="card Munawar" id="Munawar"><div class="name">Munawar Faruqui</div></div>
+        <div class="card Neil" id="Neil"><div class="name">Neil Bhatt</div></div>
+        <div class="card Samarth" id="Samarth"><div class="name">Samarth Jurel</div></div>
+        <div class="card Vicky" id="Vicky"><div class="name">Vicky Jain</div></div>
     </div>
-    <a href="#" id="voteButton" class="votebtn"><span class="votebtn-helper"></span>Vote</a>
+    <!-- <button class="votebtn" id="voteBtn" onclick="castvote()">VOTE</button> -->
+    <a href="#" id="votebtn" class="votebtn"><span class="votebtn-helper"></span>Vote</a>
 </body>
-<script src="voting.js"></script>
 </html>
