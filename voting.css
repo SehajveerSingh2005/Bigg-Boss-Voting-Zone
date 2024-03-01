@@ -261,3 +261,8 @@ margin-top:50px;
 .votebtn:hover .votebtn-helper{
   opacity: 1;
 }
+
+.disable{
+  pointer-events: none;
+  background: grey;
+}
