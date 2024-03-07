@@ -1,0 +1,223 @@
+
+.rubik-font {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+body {
+  height: 100%;
+  background-color: #000020;
+}
+
+*{
+  margin: 0;
+  font-family: "Rubik";
+}
+
+.header { 
+  display: flex;
+  background: #000020; 
+  height: 75px;
+  align-items: center;
+  justify-content: space-between;
+  
+  #logo {
+    float:left;
+    margin:0;
+    width: 15%;
+    margin-left: 50px;
+  }
+  
+  #navlist {
+    float: center;
+    
+    li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+    }
+      a{
+        line-height: 50px;
+        height: 75px;
+        font-size: 26px;
+        text-decoration: none;
+        font-family: "Rubik";
+        color: rgb(255, 255, 255);
+      }
+      a:active{
+        text-decoration: none;
+        background: linear-gradient(to right, #ffbd23, #fd7201);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
+      a:hover{
+        text-decoration: none;
+        background: linear-gradient(to right, #ffbd23, #fd7201);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
+      a:visited{
+        text-decoration: none;
+      }
+    
+  }
+
+  .signup{
+    display: inline-block;
+    position: relative ;
+    text-align: center;
+    line-height: 50px;
+    color: black;
+    text-decoration: none;
+    z-index: 9;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-right: 50px;
+    background: linear-gradient(to right, #ffbd23, #fd7201);
+  } 
+  
+  .signup-helper{
+    position: absolute;
+    height: 50px;
+    width: 100px;
+    margin-left: -15px;
+    z-index: -1;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.5s linear;
+    background: linear-gradient(to right, #fd7201,#ffbd23);
+  }
+  .signup:hover .signup-helper{
+    opacity: 1;
+  }
+}
+
+.title{
+  display: flex;
+  color: rgb(255, 255, 255);
+  font-size: 3vw;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.title span{
+  background: linear-gradient(90deg,#ffbd23 3%, #fd7201 53%,#ffbd23 97%);
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  transition: 0.5s ease;
+  position: relative;
+  background-size: 200% 100%;
+  background-position: left center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  animation: textShine 4s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.progress-container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(5,auto);
+  gap: 10px 80px;
+  justify-content: center;
+}
+
+
+.svg circle {
+  stroke-dashoffset: 565.48;
+  stroke: #666;
+  stroke-width: 1em;
+}
+.svg .bar {
+  stroke: url(#linear);
+
+}
+
+@keyframes progressAnimation {
+  from {
+      stroke-dashoffset: 565.48;
+  }
+  to {
+      stroke-dashoffset: attr(pct);
+  }
+}
+
+.bar.animate {
+  animation: progressAnimation 2.5s forwards; /* Adjust duration and timing function as needed */
+}
+
+.cont {
+  display: block;
+  height: 200px;
+  width: 200px;
+  margin: 2em auto;
+  box-shadow: 0 0 1em black;
+  border-radius: 100%;
+  position: relative;
+  text-align: center;
+}
+.cont:after {
+  position: absolute;
+  display: block;
+  height: 160px;
+  width: 160px;
+  left: 50%;
+  top: 60%;
+  box-shadow: inset 0 0 1em black;
+  content: attr(data-pct)"%";
+  margin-top: -80px;
+  margin-left: -80px;
+  border-radius: 100%;
+  line-height: 160px;
+  font-size: 2em;
+  text-shadow: 0 0 0.5em black;
+}
+
+.image-container {
+  position: absolute;
+  top: 59.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Adjust width and height based on your image size */
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.image-container:hover{
+  opacity: 0;
+}
+
+.cont img {
+  width: 300%;
+  height: 250%;
+  object-fit: cover; /* Ensure image covers container */
+  opacity: 1; /* Initial opacity for image display */
+  object-position: -170px -120px;
+}
+
+
+
+/* Make things perty */
+body {  color: #fff; text-align: center;}
+h1, h2{ margin: 0; text-transform: uppercase;text-shadow: 0 0 0.5em black;}
+h2 { font-weight: 300}
+
