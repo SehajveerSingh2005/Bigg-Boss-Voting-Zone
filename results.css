@@ -26,7 +26,7 @@ body {
   #logo {
     float:left;
     margin:0;
-    width: 15%;
+    width: 200px;
     margin-left: 50px;
   }
   
@@ -105,7 +105,7 @@ body {
   margin-top: 30px;
 }
 
-.title span{
+.title .spanclass{
   background: linear-gradient(90deg,#ffbd23 3%, #fd7201 53%,#ffbd23 97%);
   margin-left: 0.25em;
   margin-right: 0.25em;
@@ -129,8 +129,81 @@ body {
   }
 }
 
+.select-menu {
+  cursor: pointer;
+  position: relative;
+}
+
+.select {
+  background: linear-gradient(to right, #ffbd23, #fd7201);
+  padding: 20px;
+  color: black;
+  width: 130px;
+  font-size: 24px;
+  font-weight: 500;
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.options-list {
+  position: absolute;
+  width: 130px;
+  background-color: #666;
+  border-radius: 12px;
+  margin-top: 14px;
+  padding: 0 20px;
+  max-height: 180px;
+  overflow-y: auto;
+  -webkit-transition: .4s linear .2s;
+  -o-transition: .4s linear .2s;
+  transition: .4s linear .2s;
+  height: 0;
+  z-index: 9;
+}
+
+.option {
+  background:white;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  padding: 8px 0;
+  font-weight: 500;
+  font-size: 20px;
+  -webkit-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.option:hover,
+.option.selected {
+  background: linear-gradient(to right, #ffbd23, #fd7201);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.options-list::-webkit-scrollbar {
+  width: 4px;
+  background-color: #eee;
+}
+
+.options-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #ffbd23, #fd7201);
+}
+
+.options-list.active {
+  height: 180px;
+}
+
+
 .progress-container {
-  margin-top: 20px;
+  margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(5,auto);
   gap: 10px 80px;
@@ -171,6 +244,7 @@ body {
   position: relative;
   text-align: center;
 }
+
 .cont:after {
   position: absolute;
   display: block;
@@ -206,14 +280,67 @@ body {
   opacity: 0;
 }
 
-.cont img {
+
+.Aishwarya{
   width: 300%;
   height: 250%;
-  object-fit: cover; /* Ensure image covers container */
-  opacity: 1; /* Initial opacity for image display */
-  object-position: -170px -120px;
+  object-fit: cover;
+  object-position: -160px -140px;
+
 }
 
+.Ankita{
+  width: 150%;
+  object-fit: cover;
+  object-position: -40px -5px;
+}
+
+.Anurag{
+  width: 250%;
+  object-position: -190px -60px;
+}
+
+.Firoza{
+  width: 150%;
+  object-position: -50px;
+}
+
+.Isha{
+  width: 250%;
+  object-position: -120px;
+}
+
+.Mannara{
+  width: 150%;
+  object-position: -40px;
+}
+
+.Munawar{
+  width: 150%;
+  object-position: -60px -10px;
+}
+
+.Neil{
+  width: 200%;
+  object-position: -80px -40px;
+}
+
+.Samarth{
+  width: 200%;
+  object-position: -60px -5px;
+}
+
+.Vicky{
+  width: 200%;
+  object-position: -60px -20px;
+}
+
+.names{
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  
+}
 
 
 /* Make things perty */
