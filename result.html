@@ -10,23 +10,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="results.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="result.js" type="module"></script>
 </head>
 <body>
   <div class="header">
-    <img id="logo" src="/images/logo.png">
+    <a href="landing.html"><img id="logo" src="/images/logo.png"></a>
     <ul id="navlist">
       <li id="active"><a href="voting.html" id="current">Home</a></li>
       <li><a href="#">Watch Now</a></li>
       <li><a href="#">About</a></li>
-      <li><a href="#">Result</a></li>
+      <li><a href="result.html">Result</a></li>
       <li><a href="#">Contestants</a></li>
     </ul>
         <a href='#' class="signup">
             <span class="signup-helper"></span>
         Logout</a>
   </div>
-  <div class="title">Voting <span>Results</span></div>
+  <div class="title"> Voting <span class="spanclass">Results</span>
+    <div class="select-menu">
+      <div class="select">
+        <span>Week-1</span>
+        <i class="fas fa-angle-down"></i>
+      </div>
+      <div class="options-list">
+        <div class="option" id="week1">Week-1</div>
+        <div class="option" id="week2">Week-2</div>
+        <div class="option" id="week3">Week-3</div>
+        <div class="option" id="week4">Week-4</div>
+        <div class="option" id="week5">Week-5</div>
+        <div class="option" id="week6">Week-6</div>
+        <div class="option" id="week7">Week-7</div>
+        <div class="option" id="week8">Week-8</div>
+        <div class="option" id="week9">Week-9</div>
+        <div class="option" id="week10">Week-10</div>
+        <div class="option" id="week11">Week-11</div>
+        <div class="option" id="week12">Week-12</div>
+        <div class="option" id="week13">Week-13</div>
+        <div class="option" id="week14">Week-14</div>
+        <div class="option" id="week15">Week-15</div>
+      </div>
+    </div></div>
   <div id="progressBarsContainer" class="progress-container"></div>
 </body>
 </html>
