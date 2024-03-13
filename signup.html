@@ -1,68 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
-  <link rel="stylesheet" href="signup.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="signup.css">
+    <title>Modern Login Page | AsmrProg</title>
 </head>
+
 <body>
-  <form action="#" class="login-form">
-    <h1>Sign Up</h1>
-    <div class="textb">
-      <input type="text" required>
-      <div class="placeholder">Username</div>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="tel" required minlength="10" maxlength="10" pattern="[0-9]{10}" placeholder="Phone Number">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="textb">
-        <input type="email" required>
-        <div class="placeholder">Email Id</div>
-      </div>
-    <div class="textb">
-        <input type="tel" required minlength="10" maxlength="10" pattern="[0-9]{10}">
-        <div class="placeholder">Phone No.</div>
-    </div>
-    <div class="textb">
-      <input type="password" required minlength="6">
-      <div class="placeholder">Password</div>
-      <div class="show-password fas fa-eye-slash"></div>
-    </div>
-
-    <div class="checkbox">
-      <input type="checkbox">
-      <div class="fas fa-check"></div>
-      <span style="cursor: pointer;"  onclick="location.href='terms.html'">Agree to the Terms & Conditions</span>
-    </div>
-
-    <button class="btn fas fa-arrow-right" disabled></button>
-    <a href="login.html">Already have an account? Sign In</a>
-  </form>
-
-  <script>
-    var fields = document.querySelectorAll(".textb input");
-    var btn = document.querySelector(".btn");
-    function check(){
-      if(fields[0].value != "" && fields[1].value != "")
-        btn.disabled = false;
-      else
-        btn.disabled = true;  
-    }
-
-    fields[0].addEventListener("keyup",check);
-    fields[1].addEventListener("keyup",check);
-
-    document.querySelector(".show-password").addEventListener("click",function(){
-      if(this.classList[2] == "fa-eye-slash"){
-        this.classList.remove("fa-eye-slash");
-        this.classList.add("fa-eye");
-        fields[1].type = "text";
-      }else{
-        this.classList.remove("fa-eye");
-        this.classList.add("fa-eye-slash");
-        fields[1].type = "password";
-      }
-    });
-  </script>
+    <script src="signup.js"></script>
 </body>
+
 </html>
