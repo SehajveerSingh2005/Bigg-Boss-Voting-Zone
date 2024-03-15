@@ -25,7 +25,7 @@
     #logo {
       float:left;
       margin:0;
-      width: 15%;
+      width: 200px;
       margin-left: 50px;
     }
     
@@ -95,6 +95,25 @@
         opacity: 1;
     }
 }
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensure loading screen is above other elements */
+}
+
+#loading-screen p {
+  color: white;
+  font-size: 20px;
+}
+
 
 .title{
     display: flex;
@@ -194,7 +213,7 @@ margin-top:50px;
   background-position: center top;
 }
 .Mannara{
-  background-image: url("/images/mannara.webp");
+  background-image: url("/images/Mannara.webp");
   background-size: 150%;
   background-position: center top;
 }
@@ -227,6 +246,7 @@ margin-top:50px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
+
 
 .votebtn{
   display: inline-block;
@@ -262,7 +282,30 @@ margin-top:50px;
   opacity: 1;
 }
 
+
 .disable{
   pointer-events: none;
   background: grey;
+}
+
+.voted{
+  display: flex;
+  height: 60px;
+  width: 400px;
+  margin-left: 550px;
+  margin-top: 150px;
+  background: linear-gradient(to right, #ffbd23, #fd7201);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  font-size: 30px;
+  z-index: 9;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.voted.msg{
+  opacity: 1;
 }
