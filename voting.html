@@ -13,16 +13,19 @@
     <script src="voting.js" type="module"></script>
 </head>
 <body>
+    <div id="loading-screen">
+        <p>Loading...</p>
+      </div> 
     <div class="header">
-        <img id="logo" src="/images/logo.png">
+        <a href="landing.html"><img id="logo" src="/images/logo.png"></a>
         <ul id="navlist">
           <li id="active"><a href="landing.html" id="current">Home</a></li>
-          <li><a href="watch.html">Watch Now</a></li>
+          <li><a href="#">Watch Now</a></li>
           <li><a href="#">About</a></li>
           <li><a href="result.html">Result</a></li>
-          <li><a href="cont2.html">Contestant</a></li>
+          <li><a href="#">Contestants</a></li>
         </ul>
-        <a href='landing.html' class="signout">
+        <a href='#' class="signout" id="signoutbtn">
             <span class="signout-helper"></span>
         Signout</a>
     </div>
@@ -39,7 +42,7 @@
         <div class="card Samarth" id="Samarth"><div class="name">Samarth Jurel</div></div>
         <div class="card Vicky" id="Vicky"><div class="name">Vicky Jain</div></div>
     </div>
-    <!-- <button class="votebtn" id="voteBtn" onclick="castvote()">VOTE</button> -->
     <a href="#" id="votebtn" class="votebtn"><span class="votebtn-helper"></span>Vote</a>
+    <div class="voted" id="votedmsg">Thank You For Voting!</div>
 </body>
 </html>
