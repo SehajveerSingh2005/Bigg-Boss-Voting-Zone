@@ -9,23 +9,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body>    
     <div class="header">
         <img id="logo" src="/images/logo.png">
         <ul id="navlist">
-          <li id="active"><a href="#" id="current">Home</a></li>
-          <li><a href="watch.html">Watch Now</a></li>
+          <li id="active"><a href="landing.html" id="current">Home</a></li>
+          <li><a href="#">Watch Now</a></li>
           <li><a href="#">About</a></li>
           <li><a href="result.html">Result</a></li>
-          <li><a href="cont2.html">Contestants</a></li>
+          <li><a href="#">Contestants</a></li>
         </ul>
-        <div class="btns">
-            <a href="login.html" class="login">Login</a>
+        <div class="btns" id="btns">
+            <a href='signup.html' class="login">Login</a>
     
             <a href='signup.html' class="signup">
                 <span class="signup-helper"></span>
             Signup</a>
         </div>
+        <a href='#' class="signout" id="signoutbtn">
+            <span class="signout-helper"></span>
+        Signout</a>
+        
     </div>
     <div class="content">
         <img src="/images/logo.png">
@@ -33,14 +37,9 @@
              Aa chuka hai Bigg Boss ka all new season with Salman Khan - Bigg Boss 17.
               Dekho 24 hrs LIVE Channel and non-stop action right here, right now.
         </div>
-        <a href="watch.html" class="cn">
+        <a href="https://www.jiocinema.com/tv-shows/bigg-boss-ott/3499624" class="cn">
             <span class="cn-helper"></span>
             WATCH</a>
-        <!-- <div class="videomask">
-            <video width="420" height="240" autoplay muted>
-                <source src="/videos/BIgg Boss 17 landing page.mp4" type="video/mp4">
-            </video>
-        </div> -->
         <img id="votepost" src="images/bannerMajor.png">
         <h3>CLICK HERE TO VOTE FOR YOUR FAVOURITE CONTESTANT NOW!</h3>
         </div>
@@ -50,9 +49,9 @@
             </video>
             <a href='voting.html' class="votebtn">
                 <span class="votebtn-helper"></span>
-            VOTE NOW</a> 
+            VOTE NOW</a>
         </div>
     <div class="footer"></div>
 </body>
-<script src="landing.js"></script>
+<script src="landing.js" type="module"></script>
 </html>
