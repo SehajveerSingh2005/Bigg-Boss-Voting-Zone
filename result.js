@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { doc, getFirestore, collection, getDocs, getAggregateFromServer ,sum} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"
+import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDXIajxTK_g31he872G4xnM-nlZ9cmfz6k",
@@ -15,11 +16,30 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 const coll = collection(db, "votecount");
+
 const querySnapshot = await getDocs(collection(db, "votecount"));
 // Get the progress bars container
 const container = document.getElementById('progressBarsContainer');
 let selectedOptionId = 'week1'; 
+const loadingScreen = document.getElementById('loading-screen');
+loadingScreen.style.display = 'none';
+
+onAuthStateChanged(auth,(user)=>{
+
+    const signoutbtn = document.getElementById( 'signoutbtn' );
+    loadingScreen.style.display = 'block';
+  
+    if (user) {
+        loadingScreen.style.display = 'none';
+        signoutbtn.style.display='block';
+    }
+    else{
+        window.location.href = 'signup.html';
+    }
+  })
+
 
 async function retrieveVoteData(selectedOptionId){
     console.log("function called with:", selectedOptionId);
@@ -32,7 +52,6 @@ async function retrieveVoteData(selectedOptionId){
     querySnapshot.forEach(async (doc) => {
         const count = doc.data()[selectedOptionId];
         const perc = (count / snapshot.data().totalcount) * 100;
-        
         
         // Create a progress bar element
         const progressBar = document.createElement('div');
@@ -120,7 +139,7 @@ async function retrieveVoteData(selectedOptionId){
         // Update the progress bar asynchronously
          updateProgressBar(progressBar);
     });
-    
+
     async function updateProgressBar(progressBar) {
         const $circle = $(progressBar).find('.bar'); // Select the circle element with class 'bar' inside each '.cont' element
         const r = $circle.attr('r');
@@ -134,19 +153,20 @@ async function retrieveVoteData(selectedOptionId){
         $circle.addClass('animate');
         
     }
+
     
 }
 
 async function retrieveDefaultData(){
     console.log("function called with:", selectedOptionId);
     const snapshot = await getAggregateFromServer(coll, {
-        totalcount: sum('week1')
+        totalcount: sum('week15')
     });
 
     container.innerHTML = "";
 
     querySnapshot.forEach(async (doc) => {
-        const count = doc.data().week1;
+        const count = doc.data().week15;
         const perc = (count / snapshot.data().totalcount) * 100;
         
         
@@ -284,5 +304,18 @@ const select = document.querySelector(".select");
         });
     });
 
-
+    const signOutUser = () => {
+        auth.signOut().then(() => {
+            // Sign-out successful.
+            console.log('User signed out successfully');
+            // You can redirect the user to another page or perform any other actions after sign-out
+        }).catch((error) => {
+            // An error happened.
+            console.error('Sign-out error:', error);
+        });
+    };
+    
+    const signoutbtn = document.getElementById( 'signoutbtn' );
+    
+    signoutbtn.addEventListener( 'click', signOutUser, false ) ;
 // Loop through the query snapshot and create progress bars
