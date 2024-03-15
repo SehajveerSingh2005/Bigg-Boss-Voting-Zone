@@ -336,9 +336,11 @@ body {
 }
 
 .names{
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
+  bottom: -230px;
+  position: relative;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
   
 }
 
@@ -348,3 +350,40 @@ body {  color: #fff; text-align: center;}
 h1, h2{ margin: 0; text-transform: uppercase;text-shadow: 0 0 0.5em black;}
 h2 { font-weight: 300}
 
+@media (max-width: 768px) {
+  .cont {
+    width: 80%; /* Adjust width for smaller screens */
+  }
+
+  .cont .bar {
+    width: 40%; /* Adjust individual bar width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .cont {
+    width: 100%; /* Make container full width on very small screens */
+  }
+
+  .cont .bar {
+    width: 100%; /* Make bars full width on very small screens */
+  }
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensure loading screen is above other elements */
+}
+
+#loading-screen p {
+  color: white;
+  font-size: 20px;
+}
