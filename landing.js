@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-import { doc, getFirestore, collection, getDocs,setDoc,addDoc} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"
+import { doc, getFirestore, collection, getDocs,setDoc,addDoc,where,query} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"
 import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
 const firebaseConfig = {
@@ -18,21 +18,42 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
+function updateProfileMenu(userName) {
+    const menuElement = document.getElementById('profiledropdown').querySelector('.menu h3');
+    menuElement.textContent = userName;
+  }
+
 
 onAuthStateChanged(auth,(user)=>{
 
     const btns = document.getElementById("btns");
-    const signoutbtn = document.getElementById( 'signoutbtn' );
+    const profiledrop = document.getElementById( 'profiledropdown' );
 
     if (user) {
         btns.style.display = 'none';
-        signoutbtn.style.display='block';
+        profiledrop.style.display='block';
+        const userId = user.uid;
+        fetchUsername(userId);
     }
     else{
         btns.style.display = 'flex';
-        signoutbtn.style.display = 'none';
+        profiledrop.style.display = 'none';
+        updateProfileMenu('User');
     }
 })
+
+async function fetchUsername(userId) { 
+  
+    const q = query(collection(db,'users'), where('UID',"==",userId)) // Access the user document based on ID
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    const username = doc.data().Username;
+    updateProfileMenu(username);
+});
+}
+  
 
 const signOutUser = () => {
     auth.signOut().then(() => {
@@ -49,3 +70,12 @@ const signoutbtn = document.getElementById( 'signoutbtn' );
 
 signoutbtn.addEventListener( 'click', signOutUser, false ) ;
 
+function menuToggle() {
+    const toggleMenu = document.querySelector(".menu");
+    toggleMenu.classList.toggle("active");
+    console.log('active');
+  }
+
+const profile = document.getElementById("profile");
+
+profile.addEventListener( "click", menuToggle);
