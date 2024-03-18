@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "rubik";
 }
 body{
     background-color:#000020 ;
@@ -23,7 +24,9 @@ body{
     text-align: center;
     margin-bottom: 20px;
     font-size: 3rem;
-    color: rgb(219, 219, 111);
+    background: linear-gradient(to right, #ffbd23, #fd7201);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
 .gallery{
     display: flex;
@@ -61,8 +64,8 @@ filter: grayscale(0%);
     padding: 25px;
     width: 100%;
     height: 20%;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 30px;
+    font-weight: 600;
     color: #090909;
     text-align: center;
     opacity: 0;
