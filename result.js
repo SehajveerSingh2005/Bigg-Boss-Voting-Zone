@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-import { doc, getFirestore, collection, getDocs, getAggregateFromServer ,sum} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"
+import { doc, getFirestore, collection, getDocs, getAggregateFromServer ,sum,where,query} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"
 import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
 const firebaseConfig = {
@@ -26,20 +26,38 @@ let selectedOptionId = 'week1';
 const loadingScreen = document.getElementById('loading-screen');
 loadingScreen.style.display = 'none';
 
+function updateProfileMenu(userName) {
+    const menuElement = document.getElementById('profiledropdown').querySelector('.menu h3');
+    menuElement.textContent = userName;
+  }
+
 onAuthStateChanged(auth,(user)=>{
 
-    const signoutbtn = document.getElementById( 'signoutbtn' );
+    const profiledrop = document.getElementById( 'profiledropdown' );
     loadingScreen.style.display = 'block';
   
     if (user) {
         loadingScreen.style.display = 'none';
-        signoutbtn.style.display='block';
+        profiledrop.style.display='block';
+        const userId = user.uid;
+        fetchUsername(userId);
     }
     else{
         window.location.href = 'signup.html';
     }
   })
 
+  async function fetchUsername(userId) { 
+  
+    const q = query(collection(db,'users'), where('UID',"==",userId)) // Access the user document based on ID
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    const username = doc.data().Username;
+    updateProfileMenu(username);
+});
+}
 
 async function retrieveVoteData(selectedOptionId){
     console.log("function called with:", selectedOptionId);
@@ -275,7 +293,6 @@ async function retrieveDefaultData(){
 
 retrieveDefaultData();
 
-
 const select = document.querySelector(".select");
     const options_list = document.querySelector(".options-list");
     const options = document.querySelectorAll(".option");
@@ -319,3 +336,13 @@ const select = document.querySelector(".select");
     
     signoutbtn.addEventListener( 'click', signOutUser, false ) ;
 // Loop through the query snapshot and create progress bars
+
+function menuToggle() {
+    const toggleMenu = document.querySelector(".menu");
+    toggleMenu.classList.toggle("active");
+    console.log('active');
+  }
+
+const profile = document.getElementById("profile");
+
+profile.addEventListener( "click", menuToggle);
