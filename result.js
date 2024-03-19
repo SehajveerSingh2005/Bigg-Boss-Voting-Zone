@@ -314,8 +314,6 @@ const select = document.querySelector(".select");
         options_list.classList.toggle("active");
         select.querySelector(".fa-angle-down").classList.toggle("fa-angle-up");
 
- 
-
         await retrieveVoteData(selectedOptionId);
 
         });
