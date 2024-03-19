@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"
-import { doc, setDoc,updateDoc,increment,where,query,getDocs,collection} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"
+import { doc, setDoc,updateDoc,increment,where,query,getDocs,collection,addDoc} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"
 import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
 
@@ -19,6 +19,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+let username;
+let cardId;
 
 // Get reference to individual divs
 const cards = document.querySelectorAll('.card');
@@ -29,6 +31,15 @@ loadingScreen.style.display = 'none';
 function updateProfileMenu(userName) {
   const menuElement = document.getElementById('profiledropdown').querySelector('.menu h3');
   menuElement.textContent = userName;
+}
+
+async function addtovotedfor(userName,cardid){
+  
+  const docRef = await addDoc(collection(db, "votedfor"), {
+    Username: userName,
+    contestant: cardid,
+    time: new Date().toLocaleString()
+  });
 }
 
 onAuthStateChanged(auth,(user)=>{
@@ -54,10 +65,11 @@ async function fetchUsername(userId) {
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
-  const username = doc.data().Username;
+  username = doc.data().Username;
   updateProfileMenu(username);
 });
 }
+
 
 // Add click event listener to each individual to handle selection
 cards.forEach((card) => {
@@ -97,13 +109,14 @@ function castvote() {
       return;
   }
 
-  const cardId = selectedcard.id;
+  cardId = selectedcard.id;
   const votecountRef = doc(db,"votecount",cardId)
 
   updateDoc(votecountRef,{
     week15: increment(1)
   })
   thanksforvote();
+  addtovotedfor(username,cardId);
   disablebtn();
 }
 
