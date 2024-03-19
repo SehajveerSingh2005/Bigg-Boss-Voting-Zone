@@ -1,54 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
-    <link rel="stylesheet" href="profile.css" />
-    <title>Profile Dropdown</title>
-  </head>
-  <body>
-      <div class="profile-dropdown">
-        <div onclick="toggle()" class="profile-dropdown-btn">
-          <div class="profile-img">
-            <i class="fa-solid fa-circle"></i>
-          </div>
-
-          <span
-            >Alex
-            <i class="fa-solid fa-angle-down"></i>
-          </span>
-        </div>
-
-        <ul class="profile-dropdown-list">
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-regular fa-user"></i>
-              Edit Profile
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-solid fa-chart-line"></i>
-              Analytics
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              Log out
-            </a>
-          </li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <p>Loading...</p>
+      </div> 
+    <div class="header">
+        <a href="landing.html"><img id="logo" src="/images/logo.png"></a>
+        <ul id="navlist">
+          <li id="active"><a href="landing.html" id="current">Home</a></li>
+          <li><a href="watch.html">Watch</a></li>
+          <li><a href="voting.html">Vote</a></li>
+          <li><a href="result.html">Result</a></li>
+          <li><a href="cont2.html">Contestants</a></li>
         </ul>
-      </div>
-    </nav>
-
-    <script src="profile.js"></script>
-  </body>
+        <div class="action" id="profiledropdown">
+            <div class="profile" id="profile">
+                <img src="images/icons/user.png" />
+            </div>
+            <div class="menu">
+                <h3>User</h3>
+                <ul>
+                <li>
+                    <img src="/images/icons/user.png"><a href="profile.html">My profile</a>
+                </li>
+                <li>
+                    <img src="/images/icons/log-out.png"><a href="#" id="signoutbtn">Logout</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="timeline">
+        <h1>Timeline</h1>
+    </div>
+    <div class="main">
+    <div class="card1">
+        <div class="avatar1">
+            <img src="https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg" alt="" class="img">
+        </div>
+        <h1 class="name1" id="username">Username</h1>
+        <div class="email">
+            <p id="email">
+                email id 
+            </p>    
+        </div>
+        <div class="pn" id="phn">
+            <p>phone number</p>
+        </div>
+    </div>
+    <div id="voted-history" class="container"></div>
+    </div>
+</body>
+<script src="profile.js" type="module"></script>
 </html>
