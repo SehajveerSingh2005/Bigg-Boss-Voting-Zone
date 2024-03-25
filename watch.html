@@ -164,10 +164,8 @@ function updateProfileMenu(userName) {
 onAuthStateChanged(auth,(user)=>{
 
     const profiledrop = document.getElementById( 'profiledropdown' );
-    loadingScreen.style.display = 'block';
   
     if (user) {
-        loadingScreen.style.display = 'none';
         profiledrop.style.display='block';
         const userId = user.uid;
         fetchUsername(userId);
