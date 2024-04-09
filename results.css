@@ -502,3 +502,89 @@ h2 { font-weight: 300}
   -webkit-background-clip: text;
   z-index: 10;
 }
+
+.topnav {
+  overflow: hidden;
+  background-color: #000020;
+  position: relative;
+  display: none;
+}
+
+.topnav img{
+  width: 40%;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background: linear-gradient(to right, #ffbd23, #fd7201);
+  color: black;
+}
+
+.active {
+  background-color: #000020;
+}
+
+
+@media screen and (max-width:1250px) {
+  .progress-container{
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows:auto;
+  }
+}
+
+@media screen and (max-width:1000px) {
+  .progress-container{
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows:auto;
+    gap:  60px 40px;
+  }
+
+  .header{
+    display: none;
+  }
+  .topnav{
+    display: block;
+  }
+  .topnav img{
+    width: 200px;
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .progress-container{
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows:auto;
+  }
+  .header{
+    display: none;
+  }
+  .select{
+    width: 80px;
+    font-size: 14px;
+  }
+  .options-list{
+    width: 100px;
+    font-size: 11px;
+  }
+
+}
