@@ -18,9 +18,11 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-function updateProfileMenu(userName) {
+function updateProfileMenu(userName,pfp) {
     const menuElement = document.getElementById('profiledropdown').querySelector('.menu h3');
+    const profilepic  = document.getElementById('profilepic');
     menuElement.textContent = userName;
+    profilepic.src = pfp;
   }
 
 
@@ -33,16 +35,15 @@ onAuthStateChanged(auth,(user)=>{
         btns.style.display = 'none';
         profiledrop.style.display='block';
         const userId = user.uid;
-        fetchUsername(userId);
+        fetchUsernameandpfp(userId);
     }
     else{
         btns.style.display = 'flex';
         profiledrop.style.display = 'none';
-        updateProfileMenu('User');
     }
 })
 
-async function fetchUsername(userId) { 
+async function fetchUsernameandpfp(userId) { 
   
     const q = query(collection(db,'users'), where('UID',"==",userId)) // Access the user document based on ID
 
@@ -50,7 +51,8 @@ async function fetchUsername(userId) {
     querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     const username = doc.data().Username;
-    updateProfileMenu(username);
+    const pfp = doc.data().imageurl;
+    updateProfileMenu(username,pfp);
 });
 }
   
