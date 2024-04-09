@@ -12,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="result.js" type="module"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <div id="loading-screen">
@@ -20,15 +21,15 @@
   <div class="header">
     <a href="landing.html"><img id="logo" src="/images/logo.png"></a>
     <ul id="navlist">
-      <li id="active"><a href="landing.html" id="current">Home</a></li>
-      <li><a href="watch.html">Watch</a></li>
+      <li id="active"><a href="voting.html" id="current">Home</a></li>
+      <li><a href="#">Watch</a></li>
       <li><a href="voting.html">Vote</a></li>
       <li><a href="result.html">Result</a></li>
       <li><a href="cont2.html">Contestants</a></li>
     </ul>
     <div class="action" id="profiledropdown">
       <div class="profile" id="profile">
-          <img src="images/icons/user.png" />
+          <img src="images/icons/user.png" id="profilepic" />
       </div>
       <div class="menu">
           <h3>User</h3>
@@ -44,6 +45,32 @@
   </div>
 </div>
   </div>
+  <div class="topnav">
+    <a href="landing.html" class="active"><img id="logo" src="/images/logo.png"></a>
+    <div id="myLinks">
+      <a href="watch.html">Watch</a>
+      <a href="voting.html">Vote</a>
+      <a href="result.html">Result</a>
+      <a href="cont2.html">Contestants</a>
+      <a href="profile.html">My Profile</a>
+      <a href="#" id="signoutbtn_m">Logout</a>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myLinks");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+    </script>
+
+
   <div class="title"> Voting <span class="spanclass">Results</span>
     <div class="select-menu">
       <div class="select">
