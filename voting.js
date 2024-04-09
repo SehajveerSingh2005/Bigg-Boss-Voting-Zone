@@ -28,19 +28,24 @@ let selectedcard = null;
 const loadingScreen = document.getElementById('loading-screen');
 loadingScreen.style.display = 'none';
 
-function updateProfileMenu(userName) {
+function updateProfileMenu(userName,pfp) {
   const menuElement = document.getElementById('profiledropdown').querySelector('.menu h3');
+  const profilepic  = document.getElementById('profilepic');
   menuElement.textContent = userName;
+  profilepic.src = pfp;
 }
 
-async function addtovotedfor(userName,cardid){
+async function addtovotedfor(uid,userName,cardid){
   
-  const docRef = await addDoc(collection(db, "votedfor"), {
+  await addDoc(collection(db, "votedfor"), {
+    UID: uid,
     Username: userName,
     contestant: cardid,
     time: new Date().toLocaleString()
   });
 }
+
+let userId;
 
 onAuthStateChanged(auth,(user)=>{
 
@@ -50,15 +55,15 @@ onAuthStateChanged(auth,(user)=>{
   if (user) {
       loadingScreen.style.display = 'none';
       profiledrop.style.display='block';
-      const userId = user.uid;
-      fetchUsername(userId);
+      userId = user.uid;
+      fetchUsernameandpfp(userId);
   }
   else{
       window.location.href = 'signup.html';
   }
 })
 
-async function fetchUsername(userId) { 
+async function fetchUsernameandpfp(userId) { 
   
   const q = query(collection(db,'users'), where('UID',"==",userId)) // Access the user document based on ID
 
@@ -66,7 +71,8 @@ async function fetchUsername(userId) {
   querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   username = doc.data().Username;
-  updateProfileMenu(username);
+  const pfp = doc.data().imageurl;
+  updateProfileMenu(username,pfp);
 });
 }
 
@@ -116,7 +122,7 @@ function castvote() {
     week15: increment(1)
   })
   thanksforvote();
-  addtovotedfor(username,cardId);
+  addtovotedfor(userId,username,cardId);
   disablebtn();
 }
 
@@ -132,8 +138,10 @@ const signOutUser = () => {
 };
 
 const signoutbtn = document.getElementById( 'signoutbtn' );
+const signoutbtn_m = document.getElementById('signoutbtn_m')
 
 signoutbtn.addEventListener( 'click', signOutUser, false ) ;
+signoutbtn_m.addEventListener( 'click', signOutUser, false ) ;
 
 function updateTimer() {
   const currentTime = new Date();
