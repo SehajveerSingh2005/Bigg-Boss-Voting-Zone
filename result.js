@@ -26,9 +26,11 @@ let selectedOptionId = 'week1';
 const loadingScreen = document.getElementById('loading-screen');
 loadingScreen.style.display = 'none';
 
-function updateProfileMenu(userName) {
+function updateProfileMenu(userName,pfp) {
     const menuElement = document.getElementById('profiledropdown').querySelector('.menu h3');
+    const profilepic  = document.getElementById('profilepic');
     menuElement.textContent = userName;
+    profilepic.src = pfp;
   }
 
 onAuthStateChanged(auth,(user)=>{
@@ -40,14 +42,14 @@ onAuthStateChanged(auth,(user)=>{
         loadingScreen.style.display = 'none';
         profiledrop.style.display='block';
         const userId = user.uid;
-        fetchUsername(userId);
+        fetchUsernameandpfp(userId);
     }
     else{
         window.location.href = 'signup.html';
     }
   })
 
-  async function fetchUsername(userId) { 
+  async function fetchUsernameandpfp(userId) { 
   
     const q = query(collection(db,'users'), where('UID',"==",userId)) // Access the user document based on ID
 
@@ -55,7 +57,8 @@ onAuthStateChanged(auth,(user)=>{
     querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     const username = doc.data().Username;
-    updateProfileMenu(username);
+    const pfp = doc.data().imageurl;
+    updateProfileMenu(username,pfp);
 });
 }
 
@@ -331,8 +334,10 @@ const select = document.querySelector(".select");
     };
     
     const signoutbtn = document.getElementById( 'signoutbtn' );
+    const signoutbtn_m = document.getElementById('signoutbtn_m')
     
     signoutbtn.addEventListener( 'click', signOutUser, false ) ;
+    signoutbtn_m.addEventListener( 'click', signOutUser, false ) ;
 // Loop through the query snapshot and create progress bars
 
 function menuToggle() {
