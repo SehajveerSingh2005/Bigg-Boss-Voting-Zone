@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { doc, getFirestore, collection, getDocs,setDoc,addDoc} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"
-import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDXIajxTK_g31he872G4xnM-nlZ9cmfz6k",
@@ -97,5 +97,19 @@ signupForm.addEventListener('submit', async (event) => {
   } catch (error) {
     console.error(error.code, error.message);
     showErrorMessage("Signup failed. Please check your details and try again.");
+  }
+});
+
+const forgotPasswordBtn = document.getElementById("forgotpass");
+
+forgotPasswordBtn.addEventListener("click", async () => {
+  const email = document.querySelector(".login [placeholder='Email Address']").value;
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+    alert("Password reset email sent! Please check your inbox."); // Or use a more user-friendly notification
+  } catch (error) {
+    console.error(error.code, error.message);
+    alert("Error sending password reset email. Please try again later."); // Or use a more user-friendly message
   }
 });
