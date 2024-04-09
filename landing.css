@@ -36,12 +36,12 @@ body {
     li {
     display: inline;
     list-style-type: none;
-    padding-right: 20px;
+    padding-right: 2rem;
     }
       a{
         line-height: 50px;
         height: 75px;
-        font-size: 26px;
+        font-size: 1.5vw;
         text-decoration: none;
         font-family: "Rubik";
         color: rgb(255, 255, 255);
@@ -67,6 +67,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: end;
+  height: fit-content;
+  width: fit-content;
 }
 
 .login {
@@ -187,20 +189,19 @@ body {
 }
 
 #votepost{
-  height: 15%;
-  width: 350px;
+  width: 29vw;
   position: relative;
   float: right;
-  margin-top: -345px;
-  margin-right: 350px;
+  margin-top: -350px;
+  margin-right: 25vw;
   filter: brightness(0.9);
 }
 
 .content h3{
   position: absolute;
-  left: 73%;
+  left: 69%;
   top: 15%;
-  font-size: 26px;
+  font-size: 2vw;
   text-align: center;
 }
 
@@ -208,7 +209,7 @@ body {
   display: inline-block;
   position: absolute;
   top: 84%;
-  left: 82%;
+  left: 80%;
   text-align: center;
   justify-content: center;
   line-height: 70px;
@@ -244,7 +245,7 @@ body {
   color: white;
   background-color: #000020;
   position: relative;
-  top: 440px;
+  top:55vh;
 }
 .content .par{
   margin-top: 10px;
@@ -252,11 +253,12 @@ body {
   position: relative;
   display: flex;
   height: 100%;
-  width: 700px;
+  width: 45vw;
   padding-left: 25px;
   font-family: Arial;
   letter-spacing: 1.2px;
   line-height: 35px;
+  font-size: 16px;
 }
 
 .content h1{
@@ -269,7 +271,7 @@ body {
 .content img{
   margin-top: 20px;
   margin-left: 20px;
-  width: 25%;
+  width: 20vw;
 }
 
 .cn{
@@ -308,15 +310,6 @@ body {
 .content span{
   color: orange;
   font-size: 60px;
-}
-
-.videomask{
-  position: absolute;
-  top: 5%;
-  left: 65%;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 19px 51px 0 rgba(255, 166, 0, 0.16), 0 14px 19px 0 rgba(255, 174, 0, 0.07)
 }
 
 
