@@ -188,6 +188,7 @@ body {
   display: flex;
 }
 
+
 #votepost{
   width: 29vw;
   position: relative;
@@ -429,7 +430,133 @@ body {
   z-index: 10;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color: #000020;
+  position: relative;
+  display: none;
+}
 
+.topnav img{
+  width: 40%;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background: linear-gradient(to right, #ffbd23, #fd7201);
+  color: black;
+}
+
+.active {
+  background-color: #000020;
+}
+
+.mobilecontent{
+  display: none;
+}
+
+@media screen and (max-width:1250px) {
+}
+
+@media screen and (max-width:1000px) {
+  .header{
+    display: none;
+  }
+  .topnav{
+    display: block;
+  }
+  .topnav img{
+    width: 200px;
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .header{
+    display: none;
+  }
+
+  .poster video{
+    margin-top: -80px;
+  }
+  .content{
+    display: none;
+  }
+
+  .mobilecontent{
+    display: flex;
+  }
+  .footer{
+    display: none;
+  }
+  .votebtn{
+    margin-top: -170px;
+    margin-left: -75px;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+  }
+
+  .votebtn-helper{
+    width:100px;
+    height: 40px;
+  }
+  #votepost{
+    margin-top:200px;
+    width: 250px;
+    height: 100%;
+  }
+  .h3{
+    color: white;
+    margin-top: 280px;
+    margin-left: -85px;
+    font-size: 18px;
+    text-align: center;
+    width: 200px;
+
+  }
+  .topnav img{
+    margin-left: -10px;
+  }
+  .par{
+    margin-top: 500px;
+    color: white;
+    font-size: 18px;
+    z-index: 10;
+    margin-left: -380px;
+    position: relative;
+    padding: 10px;
+    text-align: center;
+  }
+  .cn{
+    margin-top: 650px;
+    margin-left: -240px;
+    margin-right: 170px;
+    height: 30px;
+    padding: 10px;
+    line-height: 30px;
+  }
+}
          
 
 
