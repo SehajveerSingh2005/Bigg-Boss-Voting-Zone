@@ -474,6 +474,20 @@ body {
   display: none;
 }
 
+.posterandvotecontainer{
+  display: flex;
+  flex-direction: row;
+  height: 30vh;
+  width: 100%;
+  justify-content: center;
+}
+
+.votecontainer{
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+}
+
 @media screen and (max-width:1250px) {
 }
 
@@ -494,7 +508,9 @@ body {
   .header{
     display: none;
   }
-
+  .poster .votebtn{
+    display: none;
+  }
   .poster video{
     margin-top: -80px;
   }
@@ -504,17 +520,20 @@ body {
 
   .mobilecontent{
     display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
   }
   .footer{
     display: none;
   }
   .votebtn{
-    margin-top: -170px;
-    margin-left: -75px;
+    margin-top: -300px;
     width: 100px;
     height: 40px;
     line-height: 40px;
     font-size: 16px;
+    margin-left: -40px;
   }
 
   .votebtn-helper{
@@ -522,39 +541,46 @@ body {
     height: 40px;
   }
   #votepost{
-    margin-top:200px;
     width: 250px;
     height: 100%;
+    margin-right: 30px;
   }
   .h3{
     color: white;
-    margin-top: 280px;
-    margin-left: -85px;
     font-size: 18px;
     text-align: center;
-    width: 200px;
 
   }
   .topnav img{
     margin-left: -10px;
   }
   .par{
-    margin-top: 500px;
     color: white;
+    position: relative;
+    margin-top: -300px;
     font-size: 18px;
     z-index: 10;
-    margin-left: -380px;
     position: relative;
     padding: 10px;
     text-align: center;
+    margin-bottom: 20px;
   }
   .cn{
-    margin-top: 650px;
-    margin-left: -240px;
-    margin-right: 170px;
     height: 30px;
     padding: 10px;
     line-height: 30px;
+  }
+  .posterandvotecontainer{
+    width: 100vw;
+    margin-top: 550px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .votecontainer{
+    margin-top: -400px;
+    justify-content: center;
+    align-items: center;
   }
 }
          
